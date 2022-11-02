@@ -32,7 +32,6 @@ geofs.flyTo = function(a, b) {
       doRadioAltCall();
       checkReverse();
       checkCabin();
-      doShake();
       getGroundSound();
       getGearThud();
       overspeed();
@@ -376,14 +375,6 @@ function getFrontTouch() {
   lastGCF = noseDown;
 };
 
-function doShake() {
-
-  getShake() 
-  geofs.camera.translate(0.0001 * geofs.animation.values.shake,0.0001 * geofs.animation.values.shake,0.0001 * geofs.animation.values.shake)
-  setTimeout(function(){
-    geofs.camera.translate(-0.0001 * geofs.animation.values.shake,-0.0001 * geofs.animation.values.shake,-0.0001 * geofs.animation.values.shake)
-  },1)
-}
 
 function getRainVol() {
   if (geofs.camera.currentModeName != "cockpit") {
