@@ -1007,7 +1007,6 @@ soundInt = setInterval(function(){
   doRadioAltCall();
   checkReverse();
   checkCabin();
-  doShake();
   getGroundSound();
   getGearThud();
   overspeed();
