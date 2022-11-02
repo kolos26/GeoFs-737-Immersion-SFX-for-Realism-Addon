@@ -834,8 +834,6 @@ geofs.aircraft.instance.definition.sounds[31].effects.volume.ratio = 750
 geofs.aircraft.instance.definition.sounds[34].effects.volume.ratio = 1
 geofs.aircraft.instance.definition.sounds[39].effects.volume.ratio = 100
 geofs.aircraft.instance.definition.sounds[47].effects.volume.ratio = 90
-geofs.aircraft.instance.definition.sounds[48].effects.volume = {};
-geofs.aircraft.instance.definition.sounds[48].effects.volume.ratio = 2;
 }
 assignSounds()
 
