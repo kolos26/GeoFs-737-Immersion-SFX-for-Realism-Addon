@@ -1,17 +1,17 @@
 // Copyright 2022 Ariakim Taiyo
 
-let k = 125;
-let dc = -1.5;
-let m = 0.6;
-let vl = 0;
-let vr = 0;
-let dsl = 0;
-let dsr = 0;
-let restingpoint = 0;
-let dml = 0;
-let dmr = 0;
-let rrate = 1/240;
-let frameD = rrate * 1000;
+k = 125;
+dc = -1.5;
+m = 0.6;
+vl = 0;
+vr = 0;
+dsl = 0;
+dsr = 0;
+restingpoint = 0;
+dml = 0;
+dmr = 0;
+rrate = 1/240;
+frameD = rrate * 1000;
 
 
 //fix bug with reset
@@ -158,8 +158,8 @@ geofs.animation.values.paxScream = 0;
 geofs.animation.values.paxClap = 0;
 geofs.animation.values.tdFront = 0;
 geofs.animation.values.bump = 0;
-let bumpDist = 250;
-let bumpSC = 0;
+bumpDist = 250;
+bumpSC = 0;
 
 //get taxiway bumps
 function bumpCount() {
@@ -207,10 +207,10 @@ geofs.animation.values.liftLeftWing = (-geofs.aircraft.instance.parts.leftwing.l
 geofs.animation.values.liftRightWing = (-geofs.aircraft.instance.parts.rightwing.lift / 50000)+((geofs.animation.values.accZ - 9)/50 + geofs.animation.values.shake / 1000) / (geofs.animation.values.kias / 150);
 };
 
-let lastWingPosL = 0;
-let lastWingPosR = 0;
-let accelerationL = 1;
-let accelerationR = 1;
+lastWingPosL = 0;
+lastWingPosR = 0;
+accelerationL = 1;
+accelerationR = 1;
     
 function getAccel() {
   lastWingPosL = geofs.animation.values.liftLeftWing;
@@ -241,8 +241,8 @@ geofs.aircraft.instance.setup.parts[27].animations[0].function = "{return geofs.
 */
 
 
-let lastFlapPos = 0;
-let lastFlapTarg = 0;
+lastFlapPos = 0;
+lastFlapTarg = 0;
 
 function getFlapsSound() {
   if (geofs.camera.currentModeName == "Left wing" || geofs.camera.currentModeName == "Right wing") {
@@ -275,7 +275,7 @@ function getFlapsClick() {
   lastFlapTarg = geofs.animation.values.flapsTarget
 }
 
-let lastTrim = 0;
+lastTrim = 0;
 
 function getTrimSound() {
   if (geofs.camera.currentModeName == "cockpit") {
@@ -349,9 +349,9 @@ function overspeed() {
   }
 }
 
-let lastGC = 0;
-let lastGCF = 0;
-let noseDown = 0;
+lastGC = 0;
+lastGCF = 0;
+noseDown = 0;
 
 function getTouch() {
   if (lastGC != geofs.animation.values.groundContact && geofs.animation.values.groundContact != 0) {
@@ -441,9 +441,9 @@ function getCameraDirection() {
   var endLat = radians(b[0]);
   var endLong = radians(b[1]);
 
-  let dLong = endLong - startLong;
+  dLong = endLong - startLong;
 
-  let dPhi = Math.log(Math.tan(endLat/2.0+Math.PI/4.0)/Math.tan(startLat/2.0+Math.PI/4.0));
+  dPhi = Math.log(Math.tan(endLat/2.0+Math.PI/4.0)/Math.tan(startLat/2.0+Math.PI/4.0));
   if (Math.abs(dLong) > Math.PI){
     if (dLong > 0.0)
        dLong = -(2.0 * Math.PI - dLong);
@@ -871,10 +871,10 @@ function groundEffect() {
   }
 }
 
-let restingPoint = 5.152139372973117
+restingPoint = 5.152139372973117
 
 //detect and execute GPWS callouts
-let isApprConfig = false;
+isApprConfig = false;
  geofs.animation.values.isFlapsWarn = 0;
 geofs.animation.values.isGearWarn = 0;
 geofs.animation.values.isTerrainWarn = 0;
@@ -1061,7 +1061,7 @@ soundInt = setInterval(function(){
 }, 10)
 
 
-let alreadyChecked = false;
+alreadyChecked = false;
 function doTrafficCheck() {
   geofs.animation.values.isTCASDescend = 0;
   geofs.animation.values.isTCASClimb = 0;
