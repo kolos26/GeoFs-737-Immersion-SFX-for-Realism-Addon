@@ -159,24 +159,7 @@ geofs.animation.values.paxClap = 0;
 geofs.animation.values.tdFront = 0;
 geofs.animation.values.bump = 0;
 bumpDist = 250;
-bumpSC = 0;
 
-//get taxiway bumps
-function bumpCount() {
-  //enable sim continuity when out of cabin
-  if (geofs.animation.values.groundContact == 1) {
-    var s = geofs.animation.values.kias / 45.0;
-    if (s < 0.05) s = 0;
-    bumpSC += s;
-    if (bumpSC >= bumpDist) {
-      bumpSC = 0;
-      if (geofs.camera.currentModeName == "cockpit" || geofs.camera.currentModeName == "Left wing" || geofs.camera.currentModeName == "Right wing") {
-        geofs.animation.values.bump = 1;
-        setTimeout(function(){geofs.animation.values.bump = 0;},1500);
-      }
-    }
-  }
-}
 //get clap/scream fx
 
 function getScream() {
