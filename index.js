@@ -46,7 +46,6 @@ geofs.flyTo = function(a, b) {
       getPaxCheer();
       getScream();
       getFrontTouch();
-      bumpCount()
     })
   }, 2000)
   lastWingPosL = 0;
@@ -76,7 +75,6 @@ geofs.flyTo = function(a, b) {
   geofs.animation.values.defR = 1;
   geofs.animation.values.paxScream = 0;
   geofs.animation.values.paxClap = 0;
-  geofs.animation.values.bump = 0;
     if (a) {
         geofs.doPause(1);
         var c = geofs.aircraft.instance;
@@ -157,8 +155,6 @@ geofs.animation.values.defR = 1;
 geofs.animation.values.paxScream = 0;
 geofs.animation.values.paxClap = 0;
 geofs.animation.values.tdFront = 0;
-geofs.animation.values.bump = 0;
-bumpDist = 250;
 
 //get clap/scream fx
 
@@ -819,10 +815,6 @@ geofs.aircraft.instance.definition.sounds[47].id = "spool";
 geofs.aircraft.instance.definition.sounds[47].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/spoolcab.mp3";
 geofs.aircraft.instance.definition.sounds[47].effects = {"volume": {"value": "volumeCabin", "ramp": [1500, 6000, 7000, 8000]}, "pitch": {"value": "rpm", "ramp": [3500, 10000, 20000, 20000], "ratio": 1, "offset": 1}};	
 
-geofs.aircraft.instance.definition.sounds[48] = {};
-geofs.aircraft.instance.definition.sounds[48].id = "taxiBump"
-geofs.aircraft.instance.definition.sounds[48].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/bump.mp3"
-geofs.aircraft.instance.definition.sounds[48].effects = {"start": {"value": "bump"}}
 	
 audio.init(geofs.aircraft.instance.definition.sounds)
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ratio = 100
@@ -1040,7 +1032,6 @@ soundInt = setInterval(function(){
   getPaxCheer();
   getScream();
   getFrontTouch();
-  bumpCount()
 }, 10)
 
 
