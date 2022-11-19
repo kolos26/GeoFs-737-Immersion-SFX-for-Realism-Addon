@@ -45,6 +45,7 @@ geofs.flyTo = function(a, b) {
       getPaxCheer();
       getScream();
       getFrontTouch();
+      getStall();
     })
   }, 2000)
   lastWingPosL = 0;
@@ -261,13 +262,22 @@ function getTrimSound() {
       geofs.animation.values.trimSound = 1;
     }
     else {
-      geofs.animation.values.trimSound = 0;      
+      geofs.animation.values.trimSound = 0;
     }
   }
   else {
     geofs.animation.values.trimSound = 0;
   }
   lastTrim = geofs.animation.values.trim
+}
+
+function getStall() {
+    if (ui.hud.stallAlarmOn && geofs.animation.values.haglFeet > 20){
+        geofs.animation.values.isStall = 1
+    }
+    else{
+        geofs.animation.values.isStall = 0
+    }
 }
 
 //ground effect sound sensing
@@ -806,6 +816,14 @@ geofs.aircraft.instance.definition.sounds[47].id = "spool";
 geofs.aircraft.instance.definition.sounds[47].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/spoolcab.mp3";
 geofs.aircraft.instance.definition.sounds[47].effects = {"volume": {"value": "volumeCabin", "ramp": [1500, 6000, 7000, 8000]}, "pitch": {"value": "rpm", "ramp": [3500, 10000, 20000, 20000], "ratio": 1, "offset": 1}};	
 
+geofs.aircraft.instance.definition.sounds[48] = {};
+geofs.aircraft.instance.definition.sounds[48].id = "stall";
+geofs.aircraft.instance.definition.sounds[48].file = "https://sage-narwhal-290a3c.netlify.app/boeingstall.mp3";
+geofs.aircraft.instance.definition.sounds[48].effects = {
+	"start": {
+		"value": "isStall"
+	}
+};
 	
 audio.init(geofs.aircraft.instance.definition.sounds)
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ratio = 100
@@ -1020,6 +1038,7 @@ soundInt = setInterval(function(){
   getPaxCheer();
   getScream();
   getFrontTouch();
+  getStall()
 }, 10)
 
 
