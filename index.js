@@ -541,7 +541,6 @@ geofs.aircraft.instance.definition.sounds[8] = {};
 geofs.aircraft.instance.definition.sounds[8].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/enghighback.ogg"
 geofs.aircraft.instance.definition.sounds[8].effects = {"volume": {"value": "engSoundMultR", "ramp": [100, 500, 2000, 10000]},"pitch": {"value": "rpm", "ramp": [1000, 20000, 20000, 20000], "ratio": 1, "offset": 1}}
 
-
   geofs.aircraft.instance.definition.sounds[9] = {};
 geofs.aircraft.instance.definition.sounds[9].id = "flapswarn"
   geofs.aircraft.instance.definition.sounds[9].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/tlf.mp3"
@@ -824,6 +823,12 @@ geofs.aircraft.instance.definition.sounds[48].effects = {
 		"value": "isStall"
 	}
 };
+
+geofs.aircraft.instance.definition.sounds[49] = {};
+geofs.aircraft.instance.definition.sounds[49].id = "gearwarn"
+  geofs.aircraft.instance.definition.sounds[49].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/tlg.mp3"
+geofs.aircraft.instance.definition.sounds[49].effects = {"start": {"value": "isGearWarn"}}
+
 	
 audio.init(geofs.aircraft.instance.definition.sounds)
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ratio = 100
@@ -890,7 +895,7 @@ if (geofs.animation.values.groundContact == 1) {
 		geofs.animation.values.isGearWarn = 0;
 	}
 
-	if (geofs.animation.values.haglFeet <= 1000 && geofs.animation.values.flapsPosition == 0 && geofs.animation.values.climbrate < 0 && geofs.animation.values.isPullupWarn == 0) {
+	if (geofs.animation.values.haglFeet <= 1000 && geofs.animation.values.flapsPosition == 0 && geofs.animation.values.climbrate < 0 && geofs.animation.values.isPullupWarn == 0 && geofs.animation.values.isGearWarn == 0) {
 		geofs.animation.values.isFlapsWarn = 1;
 	} else {
 		geofs.animation.values.isFlapsWarn = 0;
