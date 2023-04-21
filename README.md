@@ -30,6 +30,7 @@ Adds 48 new high quality sounds to the 737-700. Every default sound has been com
 **Flaps Extending/Retracting Sound**; *The flaps make a faint whirr when moved.*<br>
 **Dynamic Wingflex**; *The wingflex has been completely rewritten to add ground bounce when you go over a bump, and accurate inertial physics to make them actually boing.*<br>
 
+The b737 max sound script was written by Kolos26. It uses Ariakim Taiyo's a320neo and b737ng sounds.
 
 **Terms:**<br>
 You are free to use, distribute, or modify the plugin without prior approval. You must, however, not earn profit from any distribution of the code. You may monetize videos that feature it, however, you must credit me (AriakimTaiyo) at the top of your video description with the following format;<br>
