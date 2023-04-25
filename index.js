@@ -1,4 +1,4 @@
-// Copyright 2022 Ariakim Taiyo
+// Copyright 2022 Ariakim Taiyo, Kolos26, Chiroyce1
 
 k = 125;
 dc = -1.5;
@@ -825,11 +825,16 @@ geofs.aircraft.instance.definition.sounds[48].effects = {
 };
 
 geofs.aircraft.instance.definition.sounds[49] = {};
-geofs.aircraft.instance.definition.sounds[49].id = "gearwarn"
-  geofs.aircraft.instance.definition.sounds[49].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/tlg.mp3"
-geofs.aircraft.instance.definition.sounds[49].effects = {"start": {"value": "isGearWarn"}}
+geofs.aircraft.instance.definition.sounds[49].id = "gearwarn";
+geofs.aircraft.instance.definition.sounds[49].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/tlg.mp3";
+geofs.aircraft.instance.definition.sounds[49].effects = {"start": {"value": "isGearWarn"}};
 
-	
+geofs.aircraft.instance.definition.sounds[50] = {};
+geofs.aircraft.instance.definition.sounds[50].id = "apdisco";
+geofs.aircraft.instance.definition.sounds[50].file = "https://sage-narwhal-290a3c.netlify.app/apdisco.mp3";
+geofs.aircraft.instance.definition.sounds[50].effects = {"start": {"value": "apdisco"}};
+
+
 audio.init(geofs.aircraft.instance.definition.sounds)
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ratio = 100
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ramp = [100, 500, 2000, 10000]
@@ -1016,8 +1021,15 @@ function doRadioAltCall(){
   }
 }
 
-
-
+// autopliot disconnect sound by Chiroyce1
+geofs.autopilot._turnOff = geofs.autopilot.turnOff // duplicate the original
+geofs.autopilot.turnOff = () => { // override the original function
+  geofs.autopilot._turnOff();
+  geofs.animation.values.apdisco = 1;
+  setTimeout(function() {
+    geofs.animation.values.apdisco = 0;
+  }, 200)
+}
 
 
 
