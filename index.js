@@ -46,6 +46,7 @@ geofs.flyTo = function(a, b) {
       getScream();
       getFrontTouch();
       getStall();
+      getAPdisco();
     })
   }, 2000)
   lastWingPosL = 0;
@@ -272,7 +273,7 @@ function getTrimSound() {
 }
 
 function getStall() {
-    if (ui.hud.stallAlarmOn && geofs.animation.values.haglFeet > 20){
+    if (ui.hud.stallAlarmOn && geofs.animation.values.haglFeet > 20 && geofs.camera.currentModeName == "cockpit"){
         geofs.animation.values.isStall = 1
     }
     else{
@@ -1021,16 +1022,22 @@ function doRadioAltCall(){
   }
 }
 
-// autopliot disconnect sound by Chiroyce1
-geofs.autopilot._turnOff = geofs.autopilot.turnOff // duplicate the original
-geofs.autopilot.turnOff = () => { // override the original function
-  geofs.autopilot._turnOff();
-  geofs.animation.values.apdisco = 1;
-  setTimeout(function() {
-    geofs.animation.values.apdisco = 0;
-  }, 200)
-}
+// autopliot disconnect sound by Chiroyce1 and Kolos26
 
+function getAPdisco() {
+    if (geofs.camera.currentModeName == "cockpit") {
+      if (lastap != geofs.autopilot.on && geofs.autopilot.on == 0) {
+        geofs.animation.values.apdisco = 1;
+        setTimeout(function() {
+          geofs.animation.values.apdisco = 0;
+        }, 1000)
+      }
+    }
+    else {
+      geofs.animation.values.apdisco = 0;
+    }
+    lastap = geofs.autopilot.on
+  }
 
 
 soundInt = setInterval(function(){
@@ -1055,7 +1062,8 @@ soundInt = setInterval(function(){
   getPaxCheer();
   getScream();
   getFrontTouch();
-  getStall()
+  getStall();
+  getAPdisco();
 }, 10)
 
 
